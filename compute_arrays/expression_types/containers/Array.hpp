@@ -16,7 +16,7 @@ public:
   ///
   /// Uses OpenMp to fill the array in parallel.
   template<typename E, typename std::enable_if<!std::is_same<typename E::Type, T>::value && std::is_convertible<typename E::Type, T>::value>::type* = nullptr>
-  constexpr Array(const Expression<E> &v) {
+  Array(const Expression<E> &v) {
     constexpr const E& subexpr = inner(v);
     this->mSize = subexpr.size();
     //Allocate an owned array for our data. rounding the allocated size up to a multiple of the SIMD width.
@@ -31,7 +31,7 @@ public:
   ///
   /// Uses OpenMp to fill the array in parallel.
 template<typename E, typename std::enable_if<std::is_same<typename E::Type, T>::value>::type* = nullptr>
-  constexpr Array(const Expression<E> &v) {
+  Array(const Expression<E> &v) {
     const E& subexpr = inner(v);
     this->mSize = subexpr.size();
     //Allocate an owned array for our data. rounding the allocated size up to a multiple of the SIMD width.
