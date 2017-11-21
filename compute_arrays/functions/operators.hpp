@@ -1,4 +1,5 @@
 #pragma once
+#include "../expression_types/Constant.hpp"
 #include "apply_functor.hpp"
 #include "functors.hpp"
 namespace compute_arrays{
