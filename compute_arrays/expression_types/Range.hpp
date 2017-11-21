@@ -11,7 +11,7 @@ namespace compute_arrays{
     template<int... Is>
     constexpr auto create_vector(int start, internal::seq<Is...> seq) const{
         //might be sub-optimal if Range is not constexpr
-        return vec::vectorized_type<T>({(start+Is)...});
+        return vec::vectorized_type<T>(std::initializer_list<T>({(T)(start+Is)...}).begin());
     }
   public:
     ///Construct a new range [start, end] with size nodes. If size == 1, then only one point will be included halfway between start and end.
@@ -22,7 +22,7 @@ namespace compute_arrays{
     }
     constexpr vec::vectorized_type<T> getVec(std::size_t index) const{
       assert(index + vec::vectorized_type<T>::Width -1 < mSize);
-      constexpr vec::vectorized_type<T> offset =
+      vec::vectorized_type<T> offset =
           create_vector(
                         index,
                         typename internal::gens<vec::vectorized_type<T>::Width>::type()
