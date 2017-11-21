@@ -28,7 +28,7 @@ template <typename F, typename Tuple>
     template<typename F, typename Tuple, int ...S>
     constexpr inline auto callFunc_vec(std::size_t index, const Tuple & t, seq<S...>)
     {
-      return F::Map(std::get<S>(t).get_vec(index)...);
+      return F::Map(std::get<S>(t).getVec(index)...);
     }
   }
 
