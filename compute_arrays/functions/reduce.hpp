@@ -6,18 +6,18 @@ namespace compute_arrays{
 ///
 /// Automatically vectorized with OpenMP.
 template<typename Op, typename E>
-constexpr inline auto reduce(const Expression<E>& expr){
+inline auto reduce(const Expression<E>& expr){
   using namespace vec;
   const E& subexpr = inner(expr);
-  vectorized_type<typename E::Type> v_collector(0);
-  #pragma omp declare reduction(+:vectorized_type<typename TExpr::Type>: omp_out = Op::map(omp_out,omp_in) ) initializer(omp_priv = 0)
+  vectorized_type<typename E::Type> v_collector((typename E::Type)0);
+  #pragma omp declare reduction(+:vectorized_type<typename E::Type>: omp_out = Op::Map(omp_out,omp_in) ) initializer(omp_priv = (typename E::Type)0)
   #pragma omp parallel for reduction(+:v_collector) schedule(static)
   for(int i = 0; i < subexpr.size()/decltype(v_collector)::Width; i++){
-    v_collector = Op::map(v_collector,subexpr.getVec(i));
+    v_collector = Op::Map(v_collector,subexpr.getVec(i));
   }
   typename E::Type scalar = v_collector[0];
   for(int i=1; i < decltype(v_collector)::Width;i++){
-    scalar = Op::map(scalar, v_collector[i]);
+    scalar = Op::Map(scalar, v_collector[i]);
   }
   return scalar;
 }
