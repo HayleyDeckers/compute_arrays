@@ -35,6 +35,8 @@ namespace compute_arrays{
     }
     /// Returns the size of the expression.
     constexpr std::size_t size() const{return mSize;}
+    ///returns the stepsize
+    constexpr T delta() const{return mDelta;}
     using Type = T;
   };
 }
