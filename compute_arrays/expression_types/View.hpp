@@ -24,4 +24,17 @@ namespace compute_arrays{
       return mSize;
     }
   };
+
+  template<typename E>
+  auto make_view(const Expression<E>& e, std::size_t start, std::size_t end){
+    return View<E>(e, start, end);
+  }
+  template<typename E>
+  auto make_view_from(const Expression<E>& e, std::size_t start){
+    return View<E>(e, start, inner(e).size()-1);
+  }
+  template<typename E>
+  auto make_view_to(const Expression<E>& e, std::size_t end){
+    return View<E>(e, 0, end);
+  }
 }
