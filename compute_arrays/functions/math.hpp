@@ -28,4 +28,10 @@ template<typename TVal>
 constexpr inline auto cos(const Expression<TVal>& expr) {
   return applyFunctor<functors::Cos>(expr);
 }
+
+///Compute the elementwise cos of expr.
+template<typename TVal>
+constexpr inline auto abs(const Expression<TVal>& expr) {
+  return applyFunctor<functors::Abs>(expr);
+}
 }

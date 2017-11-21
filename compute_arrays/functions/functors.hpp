@@ -58,6 +58,12 @@ template<typename T>
     return vec::tan(val);
   }
 };
+struct Abs{
+template<typename T>
+  static auto Map(T val){
+    return vec::sqrt(val*val);
+  }
+};
 //min, max, clamp operators
 template<typename T>
 struct Max{
