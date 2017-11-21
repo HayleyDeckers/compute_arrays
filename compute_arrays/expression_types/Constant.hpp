@@ -32,8 +32,8 @@ namespace compute_arrays{
   ///
   /// note: this function copies T and can not convert standard containers such as a vectors.
   template<typename T, typename std::enable_if<!std::is_base_of<Expression<T>, T>::value>::type* = nullptr>
-  constexpr inline const Constant<T> MakeExpression(const T& expr, std::size_t size){return Constant<T>(expr, size);}
+  constexpr inline const Constant<T> makeExpression(const T& expr, std::size_t size){return Constant<T>(expr, size);}
   //specialization for the case where T is already an expression.
   template<typename T, typename std::enable_if<std::is_base_of<Expression<T>, T>::value>::type* = nullptr>
-  constexpr inline const auto& MakeExpression(const Expression<T>& expr, std::size_t size){return expr;}
+  constexpr inline const auto& makeExpression(const Expression<T>& expr, std::size_t size){return expr;}
 }
