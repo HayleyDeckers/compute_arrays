@@ -9,11 +9,11 @@ sudo cp -r compute_arrays* /usr/include
 or equivalent.
 
 ## usage
-Vectorization and multi-threading are done at compile-time. Therefore you should pass `-fopenmp` and flags for turning on the preferred vectorization (`-march=native` or `-msse` for example). 
+Vectorization and multi-threading are done at compile-time. Therefore you should pass `-fopenmp` and flags for turning on the preferred vectorization (`-march=native` or `-msse` for example).
 
 ## examples
 examples can be found in the `examples` folder (😲). Below is an example comparing the forward and central finite-difference method for approximating the derivative of the sine function.
-```
+```c++
 #include "../compute_arrays.hpp"
 #include <iostream>
 using namespace compute_arrays;
