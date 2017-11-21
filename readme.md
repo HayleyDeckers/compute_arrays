@@ -14,7 +14,7 @@ Vectorization and multi-threading are done at compile-time. Therefore you should
 ## examples
 examples can be found in the `examples` folder (😲). Below is an example comparing the forward and central finite-difference method for approximating the derivative of the sine function.
 ```c++
-#include "../compute_arrays.hpp"
+#include <compute_arrays.hpp>
 #include <iostream>
 using namespace compute_arrays;
 
