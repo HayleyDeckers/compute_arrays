@@ -1,8 +1,8 @@
 # compute_arrays
-`compute_arrays` is a c++14 header-only c++ for expression-template library for performing element-wise operations on arrays of data. It leverages [`vectorized_type`](https://github.com/RDeckers/vectorized_types) for vectorization and OpenMP for threading.
+`compute_arrays` is a c++14 header-only c++ for expression-template library for performing element-wise operations on arrays of data. It leverages [`vectorized_types`](https://github.com/RDeckers/vectorized_types) for vectorization and OpenMP for threading.
 
 ## instalation
-Install [`vectorized_type`](https://github.com/RDeckers/vectorized_types) and then:
+Install [`vectorized_types`](https://github.com/RDeckers/vectorized_types) and then:
 ```
 sudo cp -r compute_arrays* /usr/include
 ```

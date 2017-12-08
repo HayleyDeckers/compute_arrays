@@ -5,7 +5,7 @@
 // types, which all use these. So we include them here instead of in every single
 //type implementation.
 #include <assert.h>
-#include <vectorized_type.h>
+#include <vectorized_types.h>
 
 namespace compute_arrays{
   //The "Gather" type is used by most other types, so we forward declare it here

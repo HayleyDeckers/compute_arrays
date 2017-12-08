@@ -1,5 +1,5 @@
 #pragma once
-#include <vectorized_type.h>
+#include <vectorized_types.h>
 namespace compute_arrays{
 namespace functors{
 struct Sum{
