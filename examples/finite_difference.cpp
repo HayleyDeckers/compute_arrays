@@ -1,4 +1,4 @@
-#include "../compute_arrays.hpp"
+#include "../include/compute_arrays.hpp"
 #include <iostream>
 using namespace compute_arrays;
 
@@ -12,7 +12,7 @@ using namespace compute_arrays;
 */
 
 int main(){
-  for(std::size_t n_points = 4; n_points < (1ul<<30); n_points *= 2){
+  for(std::size_t n_points = (1<<10); n_points < (1ul<<26); n_points *= 2){
     //create a grid on [0,3.14] using n_points.
     //Range(0,1,6) -> [0,0.2,0.4,0.6,0.8,1.0]
     // this does not actually create an array but dynamically computes when indexed.
