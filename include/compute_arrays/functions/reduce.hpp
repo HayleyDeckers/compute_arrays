@@ -2,6 +2,8 @@
 #include "apply_functor.hpp"
 #include "functors.hpp"
 namespace compute_arrays{
+
+namespace reduce{
 /// Reduce an expression using Op.
 ///
 /// Automatically vectorized with OpenMP.
@@ -22,7 +24,6 @@ inline auto reduce(const Expression<E>& expr){
   return scalar;
 }
 
-namespace reduce{
 ///Sums all the elements of expr, folding it into a scalar
 /// while using vectorized operations internally.
 ///
