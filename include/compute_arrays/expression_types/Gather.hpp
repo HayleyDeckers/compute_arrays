@@ -35,7 +35,8 @@ public:
    >::type* = nullptr
   >
   constexpr vec::vectorized_type<Type> getVec(std::size_t index) const{
-    return vec::vectorized_type<Type>::Gather(mSource.data(), mIndices.getVec(index));;
+    auto indices = mIndices.getVec(index).inner();
+    return vec::vectorized_type<Type>::gather(mSource.data(), (const typename Indices::Type *)&indices);
   }
   /// `get_vec` optimized for the situation where the `Source` derives from Slice
   /// and the source has a wider vectorization than the index.
