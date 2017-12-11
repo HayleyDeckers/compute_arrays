@@ -4,7 +4,8 @@
 ## instalation
 Install [`vectorized_types`](https://github.com/RDeckers/vectorized_types) and then:
 ```
-sudo cp -r compute_arrays* /usr/include
+cmake  -DCMAKE_BUILD_TYPE=Release .
+sudo make install
 ```
 or equivalent.
 
